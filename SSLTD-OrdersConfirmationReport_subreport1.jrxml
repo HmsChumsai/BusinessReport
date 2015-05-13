@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SSLTD-OrdersConfirmationReport_subreport1" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="23cbeb6a-f958-480d-96c8-8616fb2e414b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ORDER_NO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from Decide_deal
+where deal_no =$P{ORDER_NO}]]>
+	</queryString>
+	<field name="deal_no" class="java.lang.Object"/>
+	<field name="deal_qty" class="java.lang.Object"/>
+	<field name="deal_price" class="java.lang.Object"/>
+	<field name="deal_time" class="java.lang.Object"/>
+	<field name="trade_no" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement uuid="81023974-9543-4ef7-ab60-b266de262405" x="0" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{deal_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a191ee6c-b6d2-48f1-8c21-cb87d02076d3" x="100" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{deal_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="474af6fd-7118-4f2e-add3-49c39b338d78" x="200" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{deal_price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="803a81f9-d21c-4dec-8bf5-af28ed70f7a3" x="300" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{deal_time}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="89e2145b-fa1c-4355-a7a2-4eb2032a9135" x="400" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[""+$F{trade_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
