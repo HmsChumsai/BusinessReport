@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" pageWidth="842" pageHeight="842" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ecadc89d-b5e3-4cf7-814f-7d7e33a0a1be">
-	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
@@ -8,7 +8,8 @@
 	</parameter>
 	<parameter name="ORDER_ID" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select * from ExportedOrders,decide_header]]>
+		<![CDATA[select * from ExportedOrders,decide_header
+order by trader_id,deposit,side,order_no]]>
 	</queryString>
 	<field name="order_no" class="java.lang.Object"/>
 	<field name="side" class="java.lang.Object"/>
@@ -27,12 +28,110 @@
 	<field name="stop_series" class="java.lang.Object"/>
 	<field name="stop_price" class="java.lang.Object"/>
 	<field name="stop_condition" class="java.lang.Object"/>
+	<field name="account_name" class="java.lang.Object"/>
+	<field name="account_type" class="java.lang.Object"/>
+	<field name="client_type" class="java.lang.Object"/>
+	<field name="trader_name" class="java.lang.Object"/>
 	<field name="broker" class="java.lang.Object"/>
 	<field name="trade_date" class="java.lang.Object"/>
+	<group name="trader_id">
+		<groupExpression><![CDATA[$F{trader_id}]]></groupExpression>
+		<groupHeader>
+			<band height="41">
+				<staticText>
+					<reportElement uuid="3447f63a-789b-47dc-a7bf-f6ea845dfaaa" x="0" y="0" width="48" height="20"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Trader ID:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="622dfc97-20a7-44e0-abb9-60bb4ea5eafc" x="0" y="20" width="48" height="20"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Deposit:]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="0f607d34-820c-4788-bb8e-7f149556bca4" x="48" y="0" width="100" height="20"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{trader_id}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="370f3e67-80c5-4925-9c59-9436b61b7808" x="48" y="20" width="100" height="20"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{deposit}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="56b09769-b1f4-4226-816f-1fc148e082d3" x="178" y="0" width="35" height="20"/>
+					<textElement/>
+					<text><![CDATA[Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="0971e2f4-7a3b-49cd-8289-0d115552c7f0" x="178" y="20" width="35" height="20"/>
+					<textElement/>
+					<text><![CDATA[Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="25d5f598-b2f2-42ca-b7da-37c48ebf5721" x="388" y="20" width="59" height="20"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Credit Type:]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="d5fb16f9-93f5-4c95-a1bb-8b09d66d36c3" x="447" y="20" width="70" height="20"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{client_type}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="58fb2e14-4ef3-46e5-87b9-18a3696d9315" x="542" y="20" width="75" height="20"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Client Acc Type:]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="390c0800-5a80-4ae0-bdde-c9037e0b24df" x="617" y="20" width="100" height="20"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{account_type}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="a2972001-d63a-45cb-8649-05de945749b3" x="213" y="0" width="128" height="20"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{trader_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="2a7194d5-036b-4cf4-abdf-e8be73ba586d" x="213" y="20" width="128" height="20"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{account_name}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="18">
+				<line>
+					<reportElement uuid="56d915a7-c17e-4db8-bb4b-ed21401c324e" x="0" y="0" width="802" height="1"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
 	<columnHeader>
-		<band height="111" splitType="Stretch">
+		<band height="83" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="de3ec2e9-48d3-4e34-933c-83c4d0be473f" x="0" y="100" width="48" height="11"/>
+				<reportElement uuid="de3ec2e9-48d3-4e34-933c-83c4d0be473f" x="0" y="72" width="48" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -45,7 +144,7 @@
 				<text><![CDATA[Order No.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1165cbe7-9ced-4a78-9315-1fc4976b9617" x="48" y="100" width="15" height="11"/>
+				<reportElement uuid="1165cbe7-9ced-4a78-9315-1fc4976b9617" x="48" y="72" width="15" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -58,7 +157,7 @@
 				<text><![CDATA[S]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="02ef6138-894e-4717-8441-c3cef5f109ab" x="63" y="100" width="15" height="11"/>
+				<reportElement uuid="02ef6138-894e-4717-8441-c3cef5f109ab" x="63" y="72" width="15" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -71,7 +170,7 @@
 				<text><![CDATA[P]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="616a1dfa-2747-4e66-9861-a92686c1db40" x="78" y="100" width="49" height="11"/>
+				<reportElement uuid="616a1dfa-2747-4e66-9861-a92686c1db40" x="78" y="72" width="49" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -84,7 +183,7 @@
 				<text><![CDATA[Series]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="c8c22af4-7daa-4d26-9b6c-71ddafd07781" x="127" y="100" width="26" height="11"/>
+				<reportElement uuid="c8c22af4-7daa-4d26-9b6c-71ddafd07781" x="127" y="72" width="26" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -97,7 +196,7 @@
 				<text><![CDATA[Qty]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="1e2f0e90-0c11-4437-9cb7-17c8edd9ec80" x="153" y="100" width="47" height="11"/>
+				<reportElement uuid="1e2f0e90-0c11-4437-9cb7-17c8edd9ec80" x="153" y="72" width="47" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -110,7 +209,7 @@
 				<text><![CDATA[Matched]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="182c0581-edf1-4d7e-9702-f625f9a83280" x="200" y="100" width="47" height="11"/>
+				<reportElement uuid="182c0581-edf1-4d7e-9702-f625f9a83280" x="200" y="72" width="47" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -123,7 +222,7 @@
 				<text><![CDATA[Ord Price]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="3896389a-015b-432d-8d37-d19c99d8c74b" x="247" y="100" width="47" height="11"/>
+				<reportElement uuid="3896389a-015b-432d-8d37-d19c99d8c74b" x="247" y="72" width="47" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -136,7 +235,7 @@
 				<text><![CDATA[Ord Time]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="24fbc51b-8832-40c7-98e7-93d09406269e" x="294" y="100" width="47" height="11"/>
+				<reportElement uuid="24fbc51b-8832-40c7-98e7-93d09406269e" x="294" y="72" width="47" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -149,7 +248,7 @@
 				<text><![CDATA[Ord St]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="f8deaafc-8898-4ca6-8ea2-71f7830c7e66" x="341" y="100" width="47" height="11"/>
+				<reportElement uuid="f8deaafc-8898-4ca6-8ea2-71f7830c7e66" x="341" y="72" width="47" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -162,7 +261,7 @@
 				<text><![CDATA[Trade No.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="c0fc2d3f-b473-419f-a075-33c5fa24d2a5" x="388" y="100" width="47" height="11"/>
+				<reportElement uuid="c0fc2d3f-b473-419f-a075-33c5fa24d2a5" x="388" y="72" width="47" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -175,7 +274,7 @@
 				<text><![CDATA[D No.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="7e379fcf-b4aa-47d4-8868-d6f6c21cff02" x="435" y="100" width="47" height="11"/>
+				<reportElement uuid="7e379fcf-b4aa-47d4-8868-d6f6c21cff02" x="435" y="72" width="47" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -188,7 +287,7 @@
 				<text><![CDATA[D Qty]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="ce125ef1-eab2-440e-9d12-562f5c669f4c" x="482" y="100" width="47" height="11"/>
+				<reportElement uuid="ce125ef1-eab2-440e-9d12-562f5c669f4c" x="482" y="72" width="47" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -201,7 +300,7 @@
 				<text><![CDATA[D Price]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="b5088ab9-48b8-444d-bf93-7742c2985794" x="529" y="100" width="47" height="11"/>
+				<reportElement uuid="b5088ab9-48b8-444d-bf93-7742c2985794" x="529" y="72" width="47" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -214,7 +313,7 @@
 				<text><![CDATA[D Time]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="8c5f0826-c4b4-4883-b306-45bc041bb929" x="576" y="100" width="47" height="11"/>
+				<reportElement uuid="8c5f0826-c4b4-4883-b306-45bc041bb929" x="576" y="72" width="47" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -227,7 +326,7 @@
 				<text><![CDATA[Valid]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="d0774c2a-60c7-4361-93e4-c5d209c69a3b" x="623" y="100" width="47" height="11"/>
+				<reportElement uuid="d0774c2a-60c7-4361-93e4-c5d209c69a3b" x="623" y="72" width="47" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -240,7 +339,7 @@
 				<text><![CDATA[VDate]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="545ebeff-e04a-4bcd-91a6-707c0f6119d9" x="670" y="100" width="47" height="11"/>
+				<reportElement uuid="545ebeff-e04a-4bcd-91a6-707c0f6119d9" x="670" y="72" width="47" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -253,7 +352,7 @@
 				<text><![CDATA[StSeries]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="db64916f-fd2b-438a-8901-7c4092b95941" x="717" y="100" width="47" height="11"/>
+				<reportElement uuid="db64916f-fd2b-438a-8901-7c4092b95941" x="717" y="72" width="47" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -266,7 +365,7 @@
 				<text><![CDATA[StPrice]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="344c69cd-435e-4159-902f-9cb391b37e16" x="764" y="100" width="38" height="11"/>
+				<reportElement uuid="344c69cd-435e-4159-902f-9cb391b37e16" x="764" y="72" width="38" height="11"/>
 				<box>
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -314,23 +413,20 @@
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{trade_date}]]></textFieldExpression>
 			</textField>
-			<line>
-				<reportElement uuid="e836124a-0b5b-4ae2-aa93-9f4fbfbbe88a" x="0" y="83" width="802" height="1"/>
-			</line>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="30" splitType="Stretch">
+		<band height="31" splitType="Stretch">
 			<subreport>
-				<reportElement uuid="df38fca2-2b4a-4a6f-bec2-70328faf8eab" x="341" y="0" width="235" height="30"/>
+				<reportElement uuid="df38fca2-2b4a-4a6f-bec2-70328faf8eab" x="341" y="1" width="235" height="30"/>
 				<subreportParameter name="ORDER_ID">
 					<subreportParameterExpression><![CDATA[$F{order_no}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA["SSLTD-OrderConfirmReport_subreport1.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA["SSLTD-OrderConfirmReportByOrderTrader_subreport1.jasper"]]></subreportExpression>
 			</subreport>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="4e3cc5d3-d1ea-4724-8e73-0a380a14e62b" x="0" y="0" width="48" height="30"/>
+				<reportElement uuid="4e3cc5d3-d1ea-4724-8e73-0a380a14e62b" x="0" y="1" width="48" height="30"/>
 				<box>
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
@@ -341,7 +437,7 @@
 				<textFieldExpression><![CDATA[""+$F{order_no}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="dfec6ba9-5c9b-4539-aa3c-66f1ce0213c7" x="48" y="0" width="15" height="30"/>
+				<reportElement uuid="dfec6ba9-5c9b-4539-aa3c-66f1ce0213c7" x="48" y="1" width="15" height="30"/>
 				<box>
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
@@ -352,7 +448,7 @@
 				<textFieldExpression><![CDATA[""+$F{side}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="1f0b4f1b-b0b2-4f57-824f-065386d74248" x="63" y="0" width="15" height="30"/>
+				<reportElement uuid="1f0b4f1b-b0b2-4f57-824f-065386d74248" x="63" y="1" width="15" height="30"/>
 				<box>
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
@@ -363,7 +459,7 @@
 				<textFieldExpression><![CDATA[$F{position}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="13489963-5b30-4df5-a8ba-1e3689c9bbf6" x="78" y="0" width="49" height="30"/>
+				<reportElement uuid="13489963-5b30-4df5-a8ba-1e3689c9bbf6" x="78" y="1" width="49" height="30"/>
 				<box>
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
@@ -374,7 +470,7 @@
 				<textFieldExpression><![CDATA[$F{series}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="d8d28c29-c451-48d1-989a-72f90ce3fc6f" x="127" y="0" width="26" height="30"/>
+				<reportElement uuid="d8d28c29-c451-48d1-989a-72f90ce3fc6f" x="127" y="1" width="26" height="30"/>
 				<box>
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
@@ -385,7 +481,7 @@
 				<textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="5db01bc4-f2ee-418e-8ea7-fe1fc5199b86" x="153" y="0" width="47" height="30"/>
+				<reportElement uuid="5db01bc4-f2ee-418e-8ea7-fe1fc5199b86" x="153" y="1" width="47" height="30"/>
 				<box>
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
@@ -396,7 +492,7 @@
 				<textFieldExpression><![CDATA[$F{mathced}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="a2bab441-3e7f-4852-88f2-2b983f2ba265" x="200" y="0" width="47" height="30"/>
+				<reportElement uuid="a2bab441-3e7f-4852-88f2-2b983f2ba265" x="200" y="1" width="47" height="30"/>
 				<box>
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
@@ -407,7 +503,7 @@
 				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="ac992d56-dea5-4340-ace2-cb7c00c9475a" x="247" y="0" width="47" height="30"/>
+				<reportElement uuid="ac992d56-dea5-4340-ace2-cb7c00c9475a" x="247" y="1" width="47" height="30"/>
 				<box>
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
@@ -418,7 +514,7 @@
 				<textFieldExpression><![CDATA[$F{ord_time}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="5beba29b-aa8b-479d-adc8-59e052643b2c" x="294" y="0" width="47" height="30"/>
+				<reportElement uuid="5beba29b-aa8b-479d-adc8-59e052643b2c" x="294" y="1" width="47" height="30"/>
 				<box>
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
@@ -429,7 +525,7 @@
 				<textFieldExpression><![CDATA[$F{ord_st}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="9659d90b-ecd2-41d9-b9bb-019f57fbd792" x="576" y="0" width="47" height="30"/>
+				<reportElement uuid="9659d90b-ecd2-41d9-b9bb-019f57fbd792" x="576" y="1" width="47" height="30"/>
 				<box>
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
@@ -440,7 +536,7 @@
 				<textFieldExpression><![CDATA[$F{valid}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="742db802-b020-4266-add1-36fd73b596fc" x="623" y="0" width="47" height="30"/>
+				<reportElement uuid="742db802-b020-4266-add1-36fd73b596fc" x="623" y="1" width="47" height="30"/>
 				<box>
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
@@ -451,7 +547,7 @@
 				<textFieldExpression><![CDATA[$F{valid_date}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="24e66c7d-84f7-4851-919a-f8c28a15492d" x="670" y="0" width="47" height="30"/>
+				<reportElement uuid="24e66c7d-84f7-4851-919a-f8c28a15492d" x="670" y="1" width="47" height="30"/>
 				<box>
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
@@ -462,7 +558,7 @@
 				<textFieldExpression><![CDATA[$F{stop_series}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="24dc1ead-5faf-4ea8-9c6e-45e372e3b403" x="717" y="0" width="47" height="30"/>
+				<reportElement uuid="24dc1ead-5faf-4ea8-9c6e-45e372e3b403" x="717" y="1" width="47" height="30"/>
 				<box>
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
@@ -473,7 +569,7 @@
 				<textFieldExpression><![CDATA[$F{stop_price}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="5612f7e9-49d0-4dd9-ae03-417e0ed73f13" x="764" y="0" width="38" height="30"/>
+				<reportElement uuid="5612f7e9-49d0-4dd9-ae03-417e0ed73f13" x="764" y="1" width="38" height="30"/>
 				<box>
 					<leftPen lineWidth="0.0"/>
 					<rightPen lineWidth="0.0"/>
