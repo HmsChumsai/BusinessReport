@@ -290,7 +290,7 @@
 	<detail>
 		<band height="48" splitType="Stretch">
 			<subreport>
-				<reportElement uuid="df38fca2-2b4a-4a6f-bec2-70328faf8eab" x="341" y="0" width="235" height="20"/>
+				<reportElement uuid="df38fca2-2b4a-4a6f-bec2-70328faf8eab" x="341" y="0" width="235" height="48"/>
 				<subreportParameter name="ORDER_ID">
 					<subreportParameterExpression><![CDATA[$F{order_no}]]></subreportParameterExpression>
 				</subreportParameter>
