@@ -6,8 +6,9 @@
 	<parameter name="ORDER_ID" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select * from Decide_deal
-where deal_no=$P{ORDER_ID}]]>
+where order_no=$P{ORDER_ID}]]>
 	</queryString>
+	<field name="order_no" class="java.lang.Object"/>
 	<field name="deal_no" class="java.lang.Object"/>
 	<field name="deal_qty" class="java.lang.Object"/>
 	<field name="deal_price" class="java.lang.Object"/>
@@ -17,39 +18,64 @@ where deal_no=$P{ORDER_ID}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="20" splitType="Stretch">
-			<textField>
-				<reportElement uuid="e77dfc75-e3f7-463c-b54f-520a3a3b526f" x="94" y="0" width="47" height="20"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="10"/>
+		<band height="34" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="e77dfc75-e3f7-463c-b54f-520a3a3b526f" x="94" y="0" width="47" height="34"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[""+$F{deal_qty}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement uuid="586fa509-b614-4b25-9203-6b4bf043cfac" x="141" y="-2" width="47" height="22"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="10"/>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="586fa509-b614-4b25-9203-6b4bf043cfac" x="141" y="0" width="47" height="34"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[""+$F{deal_price}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement uuid="a4ec946d-8545-4dd3-832f-41abc0d21870" x="0" y="0" width="47" height="20" isRemoveLineWhenBlank="true"/>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="a4ec946d-8545-4dd3-832f-41abc0d21870" x="0" y="0" width="47" height="34" isRemoveLineWhenBlank="true"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="10"/>
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{trade_no}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement uuid="66d59864-621f-43a8-bb20-80ec47c89d7b" x="47" y="0" width="47" height="20"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="10"/>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="66d59864-621f-43a8-bb20-80ec47c89d7b" x="47" y="0" width="47" height="34"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{deal_no}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement uuid="6a0f6cf6-90c0-4289-9e98-54ccb2908f14" x="188" y="0" width="47" height="20"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font size="10"/>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="6a0f6cf6-90c0-4289-9e98-54ccb2908f14" x="188" y="0" width="47" height="34"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[""+$F{deal_time}]]></textFieldExpression>
 			</textField>
