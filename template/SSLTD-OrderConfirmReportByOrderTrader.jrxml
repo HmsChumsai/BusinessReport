@@ -9,7 +9,7 @@
 	<parameter name="ORDER_ID" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select * from ExportedOrders,decide_header
-order by trader_id,deposit,side,order_no]]>
+]]>
 	</queryString>
 	<field name="order_no" class="java.lang.Object"/>
 	<field name="side" class="java.lang.Object"/>
@@ -128,6 +128,15 @@ order by trader_id,deposit,side,order_no]]>
 			</band>
 		</groupFooter>
 	</group>
+	<title>
+		<band height="50">
+			<staticText>
+				<reportElement uuid="d7c94d13-94dc-451e-88a5-df94a2df5e17" x="247" y="15" width="376" height="23"/>
+				<textElement textAlignment="Justified"/>
+				<text><![CDATA[Orders & Confirmation Report by Order Trader ID, Deposit, Side and Order No. ]]></text>
+			</staticText>
+		</band>
+	</title>
 	<columnHeader>
 		<band height="83" splitType="Stretch">
 			<staticText>
@@ -404,12 +413,12 @@ order by trader_id,deposit,side,order_no]]>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="03dd5e89-b09c-4194-9a87-dbd1dd8477e0" x="388" y="31" width="100" height="20"/>
+				<reportElement uuid="03dd5e89-b09c-4194-9a87-dbd1dd8477e0" x="341" y="31" width="100" height="20"/>
 				<textElement/>
 				<text><![CDATA[Trade Date]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="d62b004e-b066-43bc-bf93-52fc6fa6313b" x="488" y="31" width="100" height="20"/>
+				<reportElement uuid="d62b004e-b066-43bc-bf93-52fc6fa6313b" x="441" y="31" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{trade_date}]]></textFieldExpression>
 			</textField>
