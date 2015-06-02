@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Audit_Position_report" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a44be594-9292-4f22-8129-08ee1677568d">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM ExportedTable
+order by AFC_ORDER]]>
+	</queryString>
+	<field name="AFC_ORDER" class="java.lang.Object"/>
+	<field name="STOCK" class="java.lang.Object"/>
+	<field name="B_S" class="java.lang.Object"/>
+	<field name="Volume" class="java.lang.Object"/>
+	<field name="Price" class="java.lang.Object"/>
+	<field name="Limit_Type" class="java.lang.Object"/>
+	<field name="Deposit" class="java.lang.Object"/>
+	<field name="Account_Type" class="java.lang.Object"/>
+	<field name="Entry_ID" class="java.lang.Object"/>
+	<field name="TTF" class="java.lang.Object"/>
+	<field name="Channel" class="java.lang.Object"/>
+	<field name="Entry_date" class="java.lang.Object"/>
+	<field name="Entry_time" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="5f7b8a89-28d6-4c69-bc64-4683c81d7dd7" x="0" y="40" width="87" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[TRADE DATE	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="1d370f46-a41a-4017-b05a-0dd285f0acab" x="87" y="0" width="301" height="20"/>
+				<textElement markup="none">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="079be965-6352-4df8-8604-2c128b0a3f3e" x="0" y="0" width="87" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[REPORT DATE	:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="479105a3-057f-45dc-a4bb-3ad83c3e9dd1" x="209" y="20" width="419" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TISCO Securities Company Limited ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="60134696-ad70-4a5d-8478-a11771d322fd" x="0" y="70" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement uuid="b6771f17-be1f-4f24-aa50-809fe05ef637" x="87" y="40" width="272" height="20"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b7d8d69a-2199-4edd-ae5f-e937d858deb1" x="715" y="0" width="30" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[TIME :]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="ef38184a-465a-41dd-9aba-bedbd19c2b04" x="745" y="0" width="57" height="20"/>
+				<textElement textAlignment="Right" markup="none">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("HH:mm:ss").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="60b789db-3997-45ac-a611-106e590c1580" x="0" y="20" width="87" height="20"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A001]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0eaaaa7b-f073-4805-b720-9c561492ba12" x="715" y="40" width="87" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[PAGE :                1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="60a1f4b3-bc29-4c3f-9737-e932bcadeace" x="87" y="20" width="121" height="20"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AFC Order Entry Report]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="6dc0cfd8-1579-40c7-aecd-32a15b0c67c0" x="1" y="86" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="6f8a4cab-d131-4ef7-8d9e-69d8e3933670" x="1" y="71" width="58" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[AFC Order #]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b67771bc-21bf-4581-ac8f-13ba45f72940" x="69" y="71" width="76" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Stock]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="020c61fe-6624-45b3-8b7c-9f5655821d2b" x="192" y="71" width="49" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Volume]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e163c566-0531-47fe-b125-eb0d4a8db644" x="145" y="71" width="47" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[B/S]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="307012ac-ea45-4747-835a-438d68b3f82d" x="241" y="71" width="38" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1b56ab57-1ff3-4e43-a31f-224bf2f87873" x="361" y="71" width="56" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Deposit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b6a0e8ab-fbb5-4ff9-96e2-c5040b2de368" x="417" y="71" width="73" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Account Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3ff5dde1-4e22-416a-a57b-4699fd89a2a7" x="279" y="71" width="67" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Limit type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5a7a700f-bfe8-49c8-a5c8-caa2c468d49c" x="490" y="71" width="63" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Entry ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7dce2ac9-c1d2-434e-b4fc-1b2ba5f65b4e" x="555" y="71" width="47" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[TTF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7108ec04-276e-4556-90c1-aa122add35d1" x="602" y="71" width="65" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Channel]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d431a461-0a21-4768-b5ad-6246547b9cd5" x="667" y="71" width="68" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Entry Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="20e97b73-79d6-4a56-b9c9-d410c64fb831" x="735" y="71" width="67" height="15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Entry Time]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="0bc34e0b-09d7-4ff1-b8ea-52b9856fb680" x="0" y="68" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="11">
+			<textField>
+				<reportElement uuid="3bf51dd6-57fb-4d20-9084-f8667320eee4" x="1" y="0" width="58" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{AFC_ORDER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c0b4cb04-3efd-4129-bf44-7c01478b5ddb" x="69" y="0" width="76" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{STOCK}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a2c8b1f4-8e4c-4530-8913-e22523774afd" x="145" y="0" width="47" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{B_S}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ac46d01f-05c9-4f43-a04b-ca3f5e741901" x="193" y="0" width="48" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{Volume}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="787e34f4-8b19-4318-93bf-4d1aa5042a54" x="241" y="0" width="38" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{Price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5f0428e9-da33-49bb-bb2b-9c2cd73892cb" x="279" y="0" width="67" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{Limit_Type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c44cbeee-3159-47d5-bfbf-4b90ebf251ed" x="361" y="0" width="56" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{Deposit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6fd18fb5-dc2e-4caf-a89f-800a4b933a4a" x="417" y="0" width="73" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{Account_Type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="77ea28cf-1ec4-49d5-bbe0-9b52da60033a" x="490" y="0" width="63" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{Entry_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8bbe0aaf-56ce-431f-88d9-ebbd19d2bd4b" x="555" y="0" width="47" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{TTF}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c7edfc04-c43e-450a-9c54-1a95b67a3b21" x="602" y="0" width="65" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{Channel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="158dd96e-0bf3-4b16-bbe8-e14a20080ee7" x="667" y="0" width="68" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{Entry_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="414477b2-5c13-470c-bdfe-ceddfb519cc0" x="735" y="0" width="67" height="11"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{Entry_time}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="13">
+			<staticText>
+				<reportElement uuid="15f7feb5-d8e3-4735-acd1-846e08ff9f7e" x="1" y="1" width="100" height="12"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[E & OD]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8e66aacd-1af3-4768-a44a-1efc0235e176" x="1" y="0" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>
